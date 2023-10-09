@@ -5,8 +5,30 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    const table = document.getElementById("grid"); // Get the table
+    const newRow = document.createElement("tr"); // Create a new row
+    
+    if (numRows === 0 && numCols === 0) {
+        // If it's the first row, add one cell
+        const newCell = document.createElement("td");
+        newCell.onclick = function() { colorCell(newCell); }; 
+        newRow.appendChild(newCell);
+        numCols++;
+    } else {
+        // Create new cells
+        for (let i = 0; i < numCols; i++) {
+            const newCell = document.createElement("td");
+            newCell.onclick = function() { colorCell(newCell); }; 
+            newRow.appendChild(newCell);
+        }
+    }
+    
+    // Append the new row to the table
+    table.appendChild(newRow);
+    
+    numRows++;
 }
+
 
 // Add a column
 function addC() {
