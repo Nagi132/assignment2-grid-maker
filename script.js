@@ -57,7 +57,7 @@ function removeR() {
 // Remove a column
 function removeC() {
     //alert("Clicked Remove Col"); // Replace this line with your code.
-    if(numCols > 0) {
+    if (numCols > 0) {
         const table = document.getElementById("grid");
         for (let i = 0; i < numRows; i++) {
             const row = table.rows[i];
@@ -75,15 +75,41 @@ function selectColor() {
 
 // Fill all uncolored cells
 function fillU() {
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    const table = document.getElementById("grid");
+    for (let i = 0; i < numRows; i++) {
+        const row = table.rows[i];
+        for (let j = 0; j < numCols; j++) {
+            const cell = row.cells[j];
+            if (cell.style.backgroundColor === "" || cell.style.backgroundColor === "white") {
+                cell.style.backgroundColor = colorSelected;
+            }
+        }
+    }
 }
 
 // Fill all cells
 function fillAll() {
-    alert("Clicked Fill All"); // Replace this line with your code.
+    //alert("Clicked Fill All"); // Replace this line with your code.
+    const table = document.getElementById("grid");
+    for (let i = 0; i < numRows; i++) {
+        const row = table.rows[i];
+        for (let j = 0; j < numCols; j++) {
+            const cell = row.cells[j];
+            cell.style.backgroundColor = colorSelected;
+        }
+    }
 }
 
 // Clear all cells
 function clearAll() {
-    alert("Clicked Clear All"); // Replace this line with your code.
+    //alert("Clicked Clear All"); // Replace this line with your code.
+    const table = document.getElementById("grid");
+    for (let i = 0; i < numRows; i++) {
+        const row = table.rows[i];
+        for (let j = 0; j < numCols; j++) {
+            const cell = row.cells[j];
+            cell.style.backgroundColor = "white";
+        }
+    }
 }
